@@ -1,0 +1,67 @@
+parameters:
+  - name: DebugMode
+    displayName: Run the Pipeline in Debug Mode
+    type: boolean
+    default: false
+
+  - name: InstancesAmount
+    displayName: How many instances will be generated
+    type: string
+    default: '5'
+
+  - name: InstanceType
+    displayName: The type of instance to generate
+    type: string
+    default: person
+    values:
+      - person
+      - address
+      - cpr
+
+
+variables:
+  - name: System.Debug
+    value: ${{ parameters.DebugMode }}
+
+  - name: iAmount
+    value: ${{ parameters.InstancesAmount}}
+
+  - name: iType
+    value: ${{ parameters.InstanceType }}
+
+trigger:
+- main
+
+stages:
+  - stage: EnvAndTests
+    displayName:  'Create Environment' 
+    jobs:
+    - job: requirements
+      displayName: Install Requirements
+      steps:
+
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '3.8'
+        displayName: Setting up Python
+
+      - bash: pip install -r requirements.txt
+        displayName: 'Installing pip requirements' 
+
+      - script: |
+          cd tests
+          pytest
+        
+  - stage: RunAndPublish
+    dependsOn: EnvAndTests
+    displayName: Run And Publish generated Artifacts
+    jobs:
+      - job: RunPublish
+        displayName: Run app.py and publish artifacts
+        steps:
+        - script: |
+            cd src
+            python app.py --instances ${{variables.iAmount}} --datatype ${{variables.iType}}
+        - publish: ./output/output.json
+          displayName: Publish Artifacts
+          artifact: output.json
