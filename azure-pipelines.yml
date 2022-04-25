@@ -1,33 +1,15 @@
+
+# parameters is my input in pypeline
 parameters:
   - name: DebugMode
     displayName: Run the Pipeline in Debug Mode
     type: boolean
     default: false
 
-  - name: InstancesAmount
-    displayName: How many instances will be generated
-    type: string
-    default: '5'
-
-  - name: InstanceType
-    displayName: The type of instance to generate
-    type: string
-    default: person
-    values:
-      - person
-      - address
-      - cpr
-
 
 variables:
   - name: System.Debug
     value: ${{ parameters.DebugMode }}
-
-  - name: iAmount
-    value: ${{ parameters.InstancesAmount}}
-
-  - name: iType
-    value: ${{ parameters.InstanceType }}
 
 trigger:
 - main

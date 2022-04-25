@@ -1,8 +1,8 @@
 from re import match
 
-from src.generator import Generator
-from src.address import address
-from src.base import base
+from generator import Generator
+from address import address
+
 class person:
     def __init__(self):
         Initials = Generator.genFullNameAndGender()
