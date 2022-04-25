@@ -1,7 +1,7 @@
 import json
 import random
 import string
-from src.base import base
+from base import base
 
 class Generator:
 ### For The Person
