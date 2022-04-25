@@ -18,7 +18,7 @@ class Generator:
     def genFullNameAndGender(sampleFile = "../datasamples/person-names.json"):
         with open(sampleFile, "r", encoding='UTF-16') as f:
             data = json.load(f)
-            #Generate Random Number 
+            #Generate Random Number
             rIndex = random.randint(0, len(data["persons"])-1)
             return data["persons"][rIndex]
 
@@ -39,7 +39,7 @@ class Generator:
 
     #Generate Last 4 digits of a CPR
     # Input - gender 'male' or 'female', birthday of dd-mm-yyyy format
-    # Output - String: birthday without '-' + random 4 digit number, even for females, odd for males 
+    # Output - String: birthday without '-' + random 4 digit number, even for females, odd for males
     @staticmethod
     def genCPR(gender, birthday):
         #Formatting the birthday:
@@ -73,20 +73,20 @@ class Generator:
 
     #Generates Random street number
     # Input - None
-    # Output - String: Random number up to 3 digits, ocasionally with a uppercase Letter at the end 
+    # Output - String: Random number up to 3 digits, ocasionally with a uppercase Letter at the end
     @staticmethod
     def genStreetNumber():
         firstPart = str(random.randint(1,999))
         optionalTrigger = random.choice(['true','false'])
         if optionalTrigger == 'true':
             fullPart = firstPart + str(random.choice(string.ascii_letters).upper())
-        else: 
+        else:
             fullPart = firstPart
         return fullPart
 
     #Generate Random floor number
     # Input - None
-    # Output - String: number from '1'-'99' or 'st' 
+    # Output - String: number from '1'-'99' or 'st'
     @staticmethod
     def genFloor():
         floor = random.randint(0,99)
@@ -117,7 +117,7 @@ class Generator:
             doorNumber = letter + dash + number
             return doorNumber
 
-    
+
     #Extract Random Town and Postcode from the sample file
     # Input - Sample File Location
     # Output - Dictionary: ex. {'name': '?', 'code': '?'}
@@ -145,9 +145,9 @@ class Generator:
         startingOptions = [2, 30, 31, 40, 41, 42, 50, 51, 52, 53, 60, 61, 71, 81,
                             91, 92, 93, 342, 344, 345, 346, 347, 348, 349, 356, 357,
                             359, 362, 365, 366, 389, 398, 431, 441, 462, 466, 468,
-                            472, 474, 476, 478, 485, 486, 488, 489, 493, 494, 495, 496, 498, 
+                            472, 474, 476, 478, 485, 486, 488, 489, 493, 494, 495, 496, 498,
                             499, 542, 543, 545, 551, 552, 556, 571, 572, 573, 574, 577, 579, 584, 586, 587,
-                            589, 597, 598, 627, 629, 641, 649, 658, 662, 663, 664, 665, 667, 
+                            589, 597, 598, 627, 629, 641, 649, 658, 662, 663, 664, 665, 667,
                             692, 663, 694, 697, 771, 772, 782, 783, 785, 786, 788, 789, 826, 827,829]
         firstPart = str(random.choice(startingOptions))
         if len(firstPart) == 1:
@@ -164,15 +164,6 @@ class Generator:
 
 
 
-# DEBUG
-# print(Generator.genBirthDate())
-# print(Generator.genCPR('female'))
-# print(Generator.genStreet())
-# print(Generator.genStreetNumber())
-# print(Generator.genFloor())
-# print(Generator.genDoorNumber())
-# print(Generator.genTownAndPostalCode())
-# print(Generator.genPhoneNumber())
 
 
 

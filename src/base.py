@@ -1,4 +1,5 @@
 import mysql.connector
+import pytest
 from mysql.connector import Error
 
 class base:
@@ -12,7 +13,6 @@ class base:
                 passwd=user_password,
                 database=db_name
             )
-            print("MySQL Database connection successful")
         except Error as err:
             print(f"Error: '{err}'")
 
@@ -24,7 +24,6 @@ class base:
         try:
             cursor.execute(query)
             connection.commit()
-            print("Query successful")
         except Error as err:
             print(f"Error: '{err}'")
 
@@ -38,3 +37,4 @@ class base:
             return result
         except Error as err:
             print(f"Error: '{err}'")
+
