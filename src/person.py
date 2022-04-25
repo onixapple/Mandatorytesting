@@ -1,6 +1,6 @@
 from re import match
 
-from generator import Generator
+from src.generator import Generator
 from src.address import address
 
 class person:
