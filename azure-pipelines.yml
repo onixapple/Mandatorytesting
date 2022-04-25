@@ -34,7 +34,7 @@ trigger:
 
 stages:
   - stage: EnvAndTests
-    displayName:  'Create Environment' 
+    displayName:  'Tests'
     jobs:
     - job: requirements
       displayName: Install Requirements

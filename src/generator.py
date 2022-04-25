@@ -7,7 +7,7 @@ class Generator:
 ### For The Person
     @staticmethod
     def insertPersonInDb(firstname,lastname,gender,birthday,cpr,phone,address):
-        connection = base.create_db_connection("localhost", "root", "aqwcaa9om2", "addresses")
+        connection = base.create_db_connection("klbcedmmqp7w17ik.cbetxkdyhwsb.us-east-1.rds.amazonaws.com", "gvtdyyofw9hh1rvk", "wxuzae9o52nstbzp", "wsyw0syblihfee10")
         q = "INSERT INTO addresses.persons (firstname,lastname,gender,birthdate,cpr,phone,address) VALUES ('{}','{}','{}','{}','{}','{}','{}')".format(firstname,lastname,gender,
                                                                                        birthday,cpr,phone,address)
         base.execute_query(connection,q);
@@ -123,7 +123,7 @@ class Generator:
     # Output - Dictionary: ex. {'name': '?', 'code': '?'}
     @staticmethod
     def genTownAndPostalCode():
-        connection = base.create_db_connection("localhost", "root", "aqwcaa9om2", "addresses")
+        connection = base.create_db_connection("klbcedmmqp7w17ik.cbetxkdyhwsb.us-east-1.rds.amazonaws.com", "gvtdyyofw9hh1rvk", "wxuzae9o52nstbzp", "wsyw0syblihfee10")
 
 
         selectonequerry = "SELECT cPostalCode FROM postal_code " \

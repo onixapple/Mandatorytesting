@@ -50,7 +50,7 @@ def test_genPhoneNumber():
 def test_insert_database():
     q = "Insert Into addresses.postal_code Values ('0000','Chisinau')"
     q2 = "Select * from addresses.postal_code where cPostalCode = '0000'"
-    con = base.create_db_connection("localhost","root","aqwcaa9om2","addresses")
+    con = base.create_db_connection("klbcedmmqp7w17ik.cbetxkdyhwsb.us-east-1.rds.amazonaws.com","gvtdyyofw9hh1rvk","wxuzae9o52nstbzp","wsyw0syblihfee10")
     base.execute_query(con,q)
     toassert = base.read_query(con,q2)
     assert toassert[0][0] == "0000"
@@ -59,7 +59,7 @@ def test_insert_database():
 def test_person_db():
     Generator.insertPersonInDb("Alex","Sandro","male","19.06.1999","1906992188","12341234","Gronjord 2")
     q2 = "Select * from addresses.persons where firstname = 'Alex'"
-    con = base.create_db_connection("localhost", "root", "aqwcaa9om2", "addresses")
+    con = base.create_db_connection("klbcedmmqp7w17ik.cbetxkdyhwsb.us-east-1.rds.amazonaws.com", "gvtdyyofw9hh1rvk", "wxuzae9o52nstbzp", "wsyw0syblihfee10")
     person = base.read_query(con, q2)
     assert person[0][0] == "Alex"
     assert person[0][1] == "Sandro"
