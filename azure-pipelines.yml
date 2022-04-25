@@ -52,16 +52,13 @@ stages:
           cd tests
           pytest testMockPerson.py
         
-  - stage: RunAndPublish
+  - stage: Run
     dependsOn: EnvAndTests
-    displayName: Run And Publish generated Artifacts
+    displayName: Run
     jobs:
-      - job: RunPublish
-        displayName: Run app.py and publish artifacts
+      - job: Run
+        displayName: Run app.py
         steps:
         - script: |
             cd src
-            python app.py --instances ${{variables.iAmount}} --datatype ${{variables.iType}}
-        - publish: ./output/output.json
-          displayName: Publish Artifacts
-          artifact: output.json
+            python app.py

@@ -8,7 +8,7 @@ class Generator:
     @staticmethod
     def insertPersonInDb(firstname,lastname,gender,birthday,cpr,phone,address):
         connection = base.create_db_connection("klbcedmmqp7w17ik.cbetxkdyhwsb.us-east-1.rds.amazonaws.com", "gvtdyyofw9hh1rvk", "wxuzae9o52nstbzp", "wsyw0syblihfee10")
-        q = "INSERT INTO addresses.persons (firstname,lastname,gender,birthdate,cpr,phone,address) VALUES ('{}','{}','{}','{}','{}','{}','{}')".format(firstname,lastname,gender,
+        q = "INSERT INTO wsyw0syblihfee10.persons (firstname,lastname,gender,birthdate,cpr,phone,address) VALUES ('{}','{}','{}','{}','{}','{}','{}')".format(firstname,lastname,gender,
                                                                                        birthday,cpr,phone,address)
         base.execute_query(connection,q);
     #Extract Random First Name, Last Name, and Gender from the sample file
@@ -137,9 +137,7 @@ class Generator:
         return data
 
 
-    #Generate Random 8 digit phone number starting with the provided options
-    # Input - None
-    # Output - String: Eight didit phone number (ex: '51204433')
+
     @staticmethod
     def genPhoneNumber():
         startingOptions = [2, 30, 31, 40, 41, 42, 50, 51, 52, 53, 60, 61, 71, 81,
