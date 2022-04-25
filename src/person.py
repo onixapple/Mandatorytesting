@@ -1,7 +1,7 @@
 from re import match
 
-from generator import Generator
-from address import address
+from src.generator import Generator
+from src.address import address
 
 class person:
     def __init__(self):
