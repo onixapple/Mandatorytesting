@@ -1,4 +1,4 @@
-from src.generator import Generator
+from generator import Generator
 
 
 class address:
