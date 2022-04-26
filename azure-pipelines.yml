@@ -37,13 +37,4 @@ stages:
           cd tests
           pytest testMockPerson.py
         
-  - stage: Run
-    dependsOn: EnvAndTests
-    displayName: Run
-    jobs:
-      - job: Run
-        displayName: Run app.py
-        steps:
-        - script: |
-            cd src
-            python app.py
+

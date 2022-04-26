@@ -13,7 +13,6 @@ def test_genFullNameAndGender():
 def test_genBirthDate():
     output = Generator.genBirthDate()
     assert (len(output) == 10)
-    #TODO
     assert int(output[6:10]) > 1920
     assert int(output[0:2]) < 32
     assert int(output[3:5]) < 13
