@@ -33,7 +33,7 @@ stages:
 
       - script: |
           cd tests
-          pytest testMockPerson.py
+          coverage run -m pytest testMockPerson.py
         displayName: 'Testing'
         
 

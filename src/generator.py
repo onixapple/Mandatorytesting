@@ -150,7 +150,7 @@ class Generator:
         firstPart = str(random.choice(startingOptions))
         if len(firstPart) == 1:
             phoneNumber = firstPart + str(random.randint(1000000, 9999999))
-        if len(firstPart) == 2:
+        elif len(firstPart) == 2:
             phoneNumber = firstPart + str(random.randint(100000, 999999))
         else:
             phoneNumber = firstPart + str(random.randint(10000, 99999))
