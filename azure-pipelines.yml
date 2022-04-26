@@ -1,5 +1,5 @@
 
-# parameters is my input in pypeline
+
 parameters:
   - name: DebugMode
     displayName: Run the Pipeline in Debug Mode
@@ -11,11 +11,11 @@ variables:
   - name: System.Debug
     value: ${{ parameters.DebugMode }}
 
-#what bracnch triggers the pipeline
+
 trigger:
 - main
 
-#create python environment with required packages and run the test script
+
 stages:
   - stage: EnvAndTests
     displayName:  'Tests'
@@ -24,15 +24,15 @@ stages:
       displayName: Install Requirements
       steps:
 
-        #specify version for py environment
+
       - task: UsePythonVersion@0
         inputs:
           versionSpec: '3.10'
         displayName: Setting up Python
-        #install pip packages
+
       - bash: pip install -r requirements.txt
         displayName: 'Installing pip requirements' 
-        #run the testing scripts
+
       - script: |
           cd tests
           pytest testMockPerson.py
