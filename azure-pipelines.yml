@@ -23,8 +23,6 @@ stages:
     - job: requirements
       displayName: Install Requirements
       steps:
-
-
       - task: UsePythonVersion@0
         inputs:
           versionSpec: '3.10'
@@ -36,5 +34,6 @@ stages:
       - script: |
           cd tests
           pytest testMockPerson.py
+        displayName: 'Testing'
         
 
