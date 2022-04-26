@@ -4,7 +4,7 @@ import string
 from src.base import base
 
 class Generator:
-### For The Person
+### For The Person 12
     @staticmethod
     def insertPersonInDb(firstname,lastname,gender,birthday,cpr,phone,address):
         connection = base.create_db_connection("klbcedmmqp7w17ik.cbetxkdyhwsb.us-east-1.rds.amazonaws.com", "gvtdyyofw9hh1rvk", "wxuzae9o52nstbzp", "wsyw0syblihfee10")
